@@ -25,7 +25,7 @@ I made this because Netlify allows an incoming WebHook for publishing your site.
 ### wp-headless-cms
 **WordPress Headless CMS**
 
-([original idea](https://gist.github.com/adekbadek/c2127e6c44cef92099b1d2212eb599e0))
+([original idea](https://blog.daftcode.pl/wordpress-as-a-headless-cms-b4144c626695))
 
 This theme redirects requests so that no front-end content will be displayed to someone who has managed to get to your WP site's front-end. It has a `<meta>` tag redirect (primary) and a `window.location` redirect (backup) built in. I also included a Urchin Tracking Module (UTM) query parameter that identifies the soruce as "`wp_headless_cms_theme`".
 
