@@ -39,3 +39,5 @@ Since I generally have a self-hosted WP instance attached as a subdomain to the 
 
 1. replace both instances of `www.example.com` using WP's theme editor, sending traffic to the `wp-admin` login page
 2. check the checkbox "Discourage search engines from indexing this site" in WP's `Settings` > `Reading` section
+
+I also have added a `functions.php` file to contain various functions that might be helpful to using the REST API. Be sure to check that over so that you don't include undesired functionality.
