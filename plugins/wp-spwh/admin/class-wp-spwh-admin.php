@@ -141,26 +141,38 @@ class Wp_Spwh_Admin {
 	public function send_notification_to_endpoint ($post_id) {
 		$url = $this->wp_spwh_options['endpoint'];
 		$api_key = $this->wp_spwh_options['api_key'];
+
 		$status = get_post_status($post_id);
+		$acceptable_status = array('publish', 'private', 'trash');
+		$filter = current_filter();
+
 		$title = get_the_title($post_id);
 		$origin = site_url();
 
-		if ($status === 'publish' || $status === 'private' || $status === 'inherit' || $status === 'trash') {
-			return wp_remote_post($url, array(
-				'method'      => 'POST',
-				'httpversion' => '1.1',
-				'blocking'    => false,
-				'headers'     => array(
-					'origin'        => $origin
-				),
-				'body'        => array(
-					'post_id'       => $post_id,
-					'post_title'    => $title,
-					'post_status'	=> $status,
-					'api_key'		=> $api_key
-				)
-			));
+		// Return early if this is a post revision from the 'save_post' action.
+		if ($filter === 'save_post' && wp_is_post_revision($post_id) === false) {
+			return;
 		}
-		return;
+
+		// Return early if this isn't one of the statuses we should be watching for.
+		if (in_array($status, $acceptable_status) === false) {
+			return;
+		}
+
+		// Send the POST request.
+		return wp_remote_post($url, array(
+			'method'      => 'POST',
+			'httpversion' => '1.1',
+			'blocking'    => false,
+			'headers'     => array(
+				'origin'        => $origin
+			),
+			'body'        => array(
+				'post_id'       => $post_id,
+				'post_title'    => $title,
+				'post_status'	=> $status,
+				'api_key'		=> $api_key
+			)
+		));
 	}
 }

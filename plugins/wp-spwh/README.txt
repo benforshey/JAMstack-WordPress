@@ -10,4 +10,4 @@ A plugin to notify an endpoint when content has been updated through `save_post`
 
 == Description ==
 
-A plugin to notify an endpoint when content has been updated through `save_post` hook. Sends `origin` in header, `post_id`, `post_title`, `post_status`, and `api_key` in body. Only triggers when post status is `publish`, `private`, `inherit`, or `trash`.
+A plugin to notify an endpoint when content has been updated through `save_post` or `edit_post` hook. Sends `origin` in header, `post_id`, `post_title`, `post_status`, and `api_key` in body. Only triggers when post status is `publish`, `private`, or `trash`.

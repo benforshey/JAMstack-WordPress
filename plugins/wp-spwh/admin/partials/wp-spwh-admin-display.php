@@ -29,7 +29,7 @@
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
     ?>
-        <p>This plugin sends a non-blocking POST request to your endpoint over HTTP/1.1 whenever <code>save_post</code> (<a href="https://codex.wordpress.org/Plugin_API/Action_Reference/save_post" rel="noopener" target="_blank">codex link</a>) is triggered and the <code>post_status</code> is <code>pubish</code>, <code>private</code>, <code>inherit</code>, or <code>trash</code>. The sending domain&rsquo;s origin is included in the headers. The <code>post_id</code>, <code>post_title</code>, and <code>post_status</code> (<a href="https://codex.wordpress.org/Function_Reference/get_post_status" rel="noopener" target="_blank">codex link</a>) that triggered <code>save_post</code> are included in the body, as is the <code>api_key</code> (from the input, below).</p>
+        <p>This plugin sends a non-blocking POST request to your endpoint over HTTP/1.1 whenever <code>save_post</code> (<a href="https://codex.wordpress.org/Plugin_API/Action_Reference/save_post" rel="noopener" target="_blank">codex link</a>) or <code>edit_post</code> is triggered and the <code>post_status</code> is <code>pubish</code>, <code>private</code>, or <code>trash</code>. The sending domain&rsquo;s origin is included in the headers. The <code>post_id</code>, <code>post_title</code>, and <code>post_status</code> (<a href="https://codex.wordpress.org/Function_Reference/get_post_status" rel="noopener" target="_blank">codex link</a>) that triggered <code>save_post</code> are included in the body, as is the <code>api_key</code> (from the input, below).</p>
 
         <!-- Set POST endpoint. -->
         <fieldset>

@@ -169,6 +169,8 @@ class Wp_Spwh {
 
 		// Hook into save_post action.
 		$this->loader->add_action('save_post', $plugin_admin ,'send_notification_to_endpoint');
+		// Hook into edit_post action.
+		$this->loader->add_action('edit_post', $plugin_admin ,'send_notification_to_endpoint');
 	}
 
 	/**

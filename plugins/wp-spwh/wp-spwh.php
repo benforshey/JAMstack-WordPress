@@ -15,8 +15,8 @@
  * @wordpress-plugin
  * Plugin Name:       Save Post WebHook
  * Plugin URI:        https://integrisweb.com
- * Description:       A plugin to notify an endpoint when content has been updated through 'save_post' hook. Sends 'origin' in header, 'post_id' and 'post_title' in body.
- * Version:           1.0.0
+ * Description:       A plugin to notify an endpoint when content has been updated through 'save_post' or 'edit_post' hook. Sends 'origin' in header, 'post_id' and 'post_title' in body.
+ * Version:           1.0.1
  * Author:            Ben Forshey
  * Author URI:        https://integrisweb.com
  * License:           GPL-2.0+
