@@ -16,13 +16,13 @@ I want to give credit where credit is due, but I sometimes read a tutorial, star
 
 **WordPress Save-Post WebHook**
 
-This plugin sends a non-blocking POST request to your endpoint over HTTP/1.1 whenever [`save_post`](https://codex.wordpress.org/Plugin_API/Action_Reference/save_post) is triggered and the `post_status` is `pubish`, `private`, `inherit`, or `trash`. The sending domain's origin is included in the headers. The `post_id`, `post_title`, and [`post_status`](https://codex.wordpress.org/Function_Reference/get_post_status) that triggered `save_post` are included in the body, as is the `api_key` (if you use that option).
+This plugin sends a non-blocking POST request to your endpoint over HTTP/1.1 whenever [`save_post`](https://codex.wordpress.org/Plugin_API/Action_Reference/save_post) or `edit_post` is triggered and the `post_status` is `pubish`, `private`, or `trash`. The sending domain's origin is included in the headers. The `post_id`, `post_title`, and [`post_status`](https://codex.wordpress.org/Function_Reference/get_post_status) that triggered `save_post` are included in the body, as is the `api_key` (if you use that option).
 
 I made this because Netlify allows an incoming WebHook for publishing your site. I use this in the following way:
 
 1. put my Gatsby site on GitHub and set up with Netlify
 2. install wp-spwh into WP and set up with [incoming WebHook](https://www.netlify.com/docs/webhooks/) URL
-3. create, update, delete, or change privacy settings on some content
+3. comment upon, create, update, delete, or change privacy settings on some content
 4. WebHook gets posted to Netlify, which triggers rebuild of site's content
 
 ## Themes
